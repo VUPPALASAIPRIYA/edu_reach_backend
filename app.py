@@ -5,6 +5,8 @@ import pandas as pd
 import logging
 from dotenv import load_dotenv
 import os
+from waitress import serve
+from app import app
 app = Flask(__name__)
 
 # Enable CORS for all routes
@@ -74,5 +76,5 @@ def get_student_data():
         logging.error(f"Error fetching student: {str(e)}")
         return jsonify({"success": False, "message": "Error fetching student"}), 500
 
-if __name__ == '__main__':
-    app.run(debug=True,host='0.0.0.0', port=int(os.getenv("PORT", 8080)))
+if __name__ == "__main__":
+    serve(app, host='0.0.0.0', port=5000)
