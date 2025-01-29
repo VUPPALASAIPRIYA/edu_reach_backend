@@ -77,4 +77,4 @@ def get_student_data():
         return jsonify({"success": False, "message": "Error fetching student"}), 500
 
 if __name__ == "__main__":
-    serve(app, host='0.0.0.0', port=5000)
+    serve(app, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
