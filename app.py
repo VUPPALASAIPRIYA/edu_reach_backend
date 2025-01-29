@@ -6,7 +6,7 @@ import logging
 from dotenv import load_dotenv
 import os
 from waitress import serve
-from app import app
+
 app = Flask(__name__)
 
 # Enable CORS for all routes
